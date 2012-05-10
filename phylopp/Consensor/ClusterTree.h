@@ -45,20 +45,24 @@ struct NodeCluster
     bitset cluster;
     Node* node;
 
-    NodeCluster(bitset b, Node* n)
-        : cluster(b), node(n) {}
-    NodeCluster(bitset b) : cluster(b), node(NULL) {}
+    NodeCluster(bitset b, Node* n) : 
+        cluster(b), 
+        node(n) 
+    {}
+
+    NodeCluster(bitset b) : 
+        cluster(b), 
+        node(NULL) 
+    {}
 };
 
 
 template <class Node, class Observer>
 class ClusterTree
 {
-
     typedef typename std::list<NodeCluster<Node> > ClusterList;
     typedef typename std::list<NodeCluster<Node> >::iterator ClusterIterator;
     typedef typename std::list<NodeCluster<Node> >::const_iterator ClusterConstIterator;
-
 
 private:
 
@@ -203,8 +207,10 @@ public:
         calculateClusters(t);
     }
 
-    ClusterTree(const ClusterTree<Node, Observer>& other, Observer& observer, Locations::LocationManager& locMgr)
-        : obs(observer), isConsensusTree(true), locationManager(locMgr)
+    ClusterTree(const ClusterTree<Node, Observer>& other, Observer& observer, Locations::LocationManager& locMgr) : 
+        obs(observer), 
+        isConsensusTree(true), 
+        locationManager(locMgr)
     {
         ClusterConstIterator it = other.getClusterIterator();
 

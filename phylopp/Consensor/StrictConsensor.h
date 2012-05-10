@@ -68,7 +68,9 @@ class DuplicateNameAction
 {
 public:
 
-    DuplicateNameAction() : hasDuplicateNames(false) {}
+    DuplicateNameAction() : 
+        hasDuplicateNames(false) 
+    {}
 
     VisitAction visitNode(Node* n)
     {
@@ -157,6 +159,5 @@ private:
 };
 
 }
-
 
 #endif
