@@ -3,36 +3,11 @@
 #include "phylopp/ITreeCollection.h"
 #include "MockNode.h"
 
-namespace
-{
-
 using namespace Domain;
 using ::testing::Test;
 
-
-class ITreeCollectionTest : public Test
-{
-protected:
-
-    TestNode n;
-
-    ITreeCollectionTest() { }
-
-    virtual ~ITreeCollectionTest() { }
-
-
-    virtual void SetUp()
-    {
-    }
-
-    virtual void TearDown()
-    {
-
-    }
-};
-
 //adding trees to collections, and iterating through the collection
-TEST_F(ITreeCollectionTest, AddTreeTest)
+TEST(ITreeCollectionTest, AddTreeTest)
 {
     ITreeCollection<TestNode> col;
     ITree<TestNode>* t1 = col.addTree();
@@ -58,8 +33,5 @@ TEST_F(ITreeCollectionTest, AddTreeTest)
     ListIterator<ITree<TestNode> > it2 = col.getIterator();
 
     EXPECT_EQ(it2.count(), 6);
-
     //TODO: iterate!
-
-}
 }

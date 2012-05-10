@@ -2,9 +2,6 @@
 
 #include "phylopp/LocationAspect.h"
 
-namespace
-{
-
 using namespace Locations;
 using ::testing::Test;
 typedef std::string NodeName;
@@ -12,27 +9,8 @@ typedef std::string NodeName;
 typedef LocationAspect<Domain::Node> TestNode;
 typedef std::string NodeName;
 
-class LocationAspectTest : public Test
-{
-protected:
-
-    LocationAspectTest() { }
-
-    virtual ~LocationAspectTest() { }
-
-    virtual void SetUp()
-    {
-
-    }
-
-    virtual void TearDown()
-    {
-
-    }
-};
-
 // Check locations setting
-TEST_F(LocationAspectTest, LocationsTest)
+TEST(LocationAspectTest, LocationsTest)
 {
     LocationManager locationManager;
 
@@ -61,7 +39,7 @@ TEST_F(LocationAspectTest, LocationsTest)
 }
 
 // Check distances setting
-TEST_F(LocationAspectTest, DistancesTest)
+TEST(LocationAspectTest, DistancesTest)
 {
     LocationManager locationManager;
 
@@ -99,5 +77,4 @@ TEST_F(LocationAspectTest, DistancesTest)
     //EXPECT_TRUE(nodeB.distanceTo(&nodeS) == 10);
     //EXPECT_TRUE(nodeS.distanceTo(&nodeB) == 5);
     //EXPECT_TRUE(nodeC.distanceTo(&nodeM) == 5);
-}
 }

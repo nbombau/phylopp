@@ -8,37 +8,9 @@
 #include "phylopp/Traversal/NodeVisitor.h"
 #include "MockNode.h"
 
-namespace
-{
-
 using namespace Domain;
 using namespace Traversal;
 using ::testing::Test;
-
-//typedef MockNode<Domain::Node> TestNode;
-
-
-class TraverserTest : public Test
-{
-protected:
-
-    TestNode n;
-
-    TraverserTest() { }
-
-    virtual ~TraverserTest() { }
-
-
-    virtual void SetUp()
-    {
-
-    }
-
-    virtual void TearDown()
-    {
-
-    }
-};
 
 class TagAction
 {
@@ -52,7 +24,7 @@ public:
 
 struct AlwaysTruePredicate
 {
-    bool operator()(TestNode* node) const
+    bool operator()(TestNode* /*node*/) const
     {
         return true;
     }
@@ -63,7 +35,7 @@ struct AlwaysTruePredicate
 */
 
 //traverse  Down a tree that has only the root
-TEST_F(TraverserTest, TreaverseOnlyRootTest)
+TEST(TraverserTest, TreaverseOnlyRootTest)
 {
     ITree<TestNode> itree;
     Domain::ITree<TestNode>& t = itree;
@@ -78,7 +50,7 @@ TEST_F(TraverserTest, TreaverseOnlyRootTest)
 }
 
 //traverse Down a tree passing the tree itself
-TEST_F(TraverserTest, TraverseTreeDownTest)
+TEST(TraverserTest, TraverseTreeDownTest)
 {
     ITree<TestNode> itree;
     Domain::ITree<TestNode>& t = itree;
@@ -121,7 +93,7 @@ TEST_F(TraverserTest, TraverseTreeDownTest)
 }
 
 //traverse Down a tree passing the root node.
-TEST_F(TraverserTest, TraverseRootNodeDownTest)
+TEST(TraverserTest, TraverseRootNodeDownTest)
 {
     ITree<TestNode> itree;
     Domain::ITree<TestNode>& t = itree;
@@ -163,7 +135,7 @@ TEST_F(TraverserTest, TraverseRootNodeDownTest)
 }
 
 //traverse Down a tree passing a non-root and non-leaf node
-TEST_F(TraverserTest, TraverseMiddleNodeDownTest)
+TEST(TraverserTest, TraverseMiddleNodeDownTest)
 {
     ITree<TestNode> itree;
     Domain::ITree<TestNode>& t = itree;
@@ -204,7 +176,7 @@ TEST_F(TraverserTest, TraverseMiddleNodeDownTest)
 }
 
 //traverse Down a tree passing a leaf node
-TEST_F(TraverserTest, TraverseLeafNodeDownTest)
+TEST(TraverserTest, TraverseLeafNodeDownTest)
 {
     ITree<TestNode> itree;
     Domain::ITree<TestNode>& t = itree;
@@ -249,7 +221,7 @@ TEST_F(TraverserTest, TraverseLeafNodeDownTest)
 */
 
 //traverse up a tree passing a leaf node
-TEST_F(TraverserTest, TraverseLeafUpTest)
+TEST(TraverserTest, TraverseLeafUpTest)
 {
     ITree<TestNode> itree;
     Domain::ITree<TestNode>& t = itree;
@@ -290,7 +262,7 @@ TEST_F(TraverserTest, TraverseLeafUpTest)
 }
 
 //traverse up a tree passing a middle node
-TEST_F(TraverserTest, TraverseMiddleNodeUpTest)
+TEST(TraverserTest, TraverseMiddleNodeUpTest)
 {
     ITree<TestNode> itree;
     Domain::ITree<TestNode>& t = itree;
@@ -333,7 +305,7 @@ TEST_F(TraverserTest, TraverseMiddleNodeUpTest)
 }
 
 //traverse up a tree passing a root node
-TEST_F(TraverserTest, TraverseRootUpTest)
+TEST(TraverserTest, TraverseRootUpTest)
 {
     ITree<TestNode> itree;
     Domain::ITree<TestNode>& t = itree;
@@ -376,7 +348,7 @@ TEST_F(TraverserTest, TraverseRootUpTest)
 }
 
 //traverse Down a tree passing the tree itself
-TEST_F(TraverserTest, TraverseTreePostOrder)
+TEST(TraverserTest, TraverseTreePostOrder)
 {
     ITree<TestNode> itree;
     Domain::ITree<TestNode>& t = itree;
@@ -416,7 +388,4 @@ TEST_F(TraverserTest, TraverseTreePostOrder)
 
     ASSERT_TRUE(c2c1->visited);
     ASSERT_TRUE(c2c2->visited);
-}
-
-
 }

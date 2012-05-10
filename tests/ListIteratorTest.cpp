@@ -1,10 +1,8 @@
 #include <stddef.h>
+#include <list>
 #include <gtest/gtest.h>
 
 #include "phylopp/ListIterator.h"
-
-namespace
-{
 
 using namespace Domain;
 using ::testing::Test;
@@ -22,53 +20,23 @@ private:
     int num;
 };
 
-class ListIteratorTest : public Test
+// Check the getters work properly
+TEST(ListIteratorTest, IterationTest)
 {
-protected:
-
-    DummyClass* dummy1;
-    DummyClass* dummy2;
-    DummyClass* dummy3;
-    DummyClass* dummy4;
-    DummyClass* dummy5;
-
-    ListIteratorTest() { }
-
-    virtual ~ListIteratorTest() { }
+    DummyClass* dummy1 = new DummyClass(1);
+    DummyClass* dummy2 = new DummyClass(2);
+    DummyClass* dummy3 = new DummyClass(3);
+    DummyClass* dummy4 = new DummyClass(4);
+    DummyClass* dummy5 = new DummyClass(5);
 
     std::list<DummyClass*> list;
+    list.push_back(dummy1);
+    list.push_back(dummy2);
+    list.push_back(dummy3);
+    list.push_back(dummy4);
+    list.push_back(dummy5);
 
-    virtual void SetUp()
-    {
-
-
-        dummy1 = new DummyClass(1);
-        dummy2 = new DummyClass(2);
-        dummy3 = new DummyClass(3);
-        dummy4 = new DummyClass(4);
-        dummy5 = new DummyClass(5);
-
-        list.push_back(dummy1);
-        list.push_back(dummy2);
-        list.push_back(dummy3);
-        list.push_back(dummy4);
-        list.push_back(dummy5);
-    }
-
-    virtual void TearDown()
-    {
-        delete dummy1;
-        delete dummy2;
-        delete dummy3;
-        delete dummy4;
-        delete dummy5;
-    }
-};
-
-// Check the getters work properly
-TEST_F(ListIteratorTest, IterationTest)
-{
-    ListIterator<DummyClass> it = ListIterator<DummyClass>(list);
+    ListIterator<DummyClass> it(list);
 
     EXPECT_EQ(it.count(), 5);
 
@@ -80,5 +48,10 @@ TEST_F(ListIteratorTest, IterationTest)
         i++;
         it.next();
     }
-}
+
+    delete dummy1;
+    delete dummy2;
+    delete dummy3;
+    delete dummy4;
+    delete dummy5;
 }

@@ -8,40 +8,15 @@
 #include "phylopp/Consensor/IConsensorObserver.h"
 #include "DummyObserver.h"
 
-namespace
-{
-
 using namespace Consensus;
 using namespace Domain;
 using namespace Locations;
 using ::testing::Test;
 
-class ClusterTreeTest : public Test
-{
-protected:
-
-    ClusterTreeTest() { }
-
-    virtual ~ClusterTreeTest() { }
-
-
-    virtual void SetUp()
-    {
-
-    }
-
-    virtual void TearDown()
-    {
-    }
-};
-
-
-
-
 typedef ConsensorAspect<LocationAspect<Node> > PropNode;
 
 // Check the getters work properly
-TEST_F(ClusterTreeTest, ClusterTreeCreationTest)
+TEST(ClusterTreeTest, ClusterTreeCreationTest)
 {
     Locations::LocationManager locMgr;
     Domain::ITree<PropNode> t;
@@ -124,7 +99,7 @@ TEST_F(ClusterTreeTest, ClusterTreeCreationTest)
 
 }
 
-TEST_F(ClusterTreeTest, ClusterIntersectionTest)
+TEST(ClusterTreeTest, ClusterIntersectionTest)
 {
     Locations::LocationManager locMgr;
     /*tree 1*/
@@ -298,7 +273,7 @@ TEST_F(ClusterTreeTest, ClusterIntersectionTest)
     locMgr.clear();
 }
 
-TEST_F(ClusterTreeTest, ToTreeTest)
+TEST(ClusterTreeTest, ToTreeTest)
 {
     Locations::LocationManager locMgr;
     /*tree 1*/
@@ -422,7 +397,7 @@ TEST_F(ClusterTreeTest, ToTreeTest)
     locMgr.clear();
 }
 
-TEST_F(ClusterTreeTest, ToTreeDiferentBranchLengthTest)
+TEST(ClusterTreeTest, ToTreeDiferentBranchLengthTest)
 {
     Locations::LocationManager locMgr;
     /*tree 1*/
@@ -544,6 +519,4 @@ TEST_F(ClusterTreeTest, ToTreeDiferentBranchLengthTest)
 
     locMgr.clear();
     delete tree;
-}
-
 }

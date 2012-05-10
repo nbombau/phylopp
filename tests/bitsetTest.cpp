@@ -1,54 +1,28 @@
 #include <gtest/gtest.h>
 #include "phylopp/Consensor/bitset.h"
 
-namespace
-{
-
 using ::testing::Test;
 using namespace Consensus;
 
-class bitsetTest : public Test
-{
-protected:
-
-    bitsetTest() { }
-
-    virtual ~bitsetTest() { }
-
-    virtual void SetUp()
-    {
-
-    }
-
-    virtual void TearDown()
-    {
-
-    }
-};
-
-TEST_F(bitsetTest, sizeTest)
+TEST(bitsetTest, sizeTest)
 {
     bitset b(5);
-
     EXPECT_EQ(b.size(), 5);
 
     bitset a(b);
-
     EXPECT_EQ(a.size(), 5);
 }
 
-TEST_F(bitsetTest, clearEmptyTest)
+TEST(bitsetTest, clearEmptyTest)
 {
     bitset b(5);
-
     EXPECT_FALSE(b.empty());
 
     b.clear();
-
     EXPECT_TRUE(b.empty());
 }
 
-TEST_F(bitsetTest, flipTest)
+TEST(bitsetTest, flipTest)
 {
     bitset b(5);
 
@@ -62,10 +36,9 @@ TEST_F(bitsetTest, flipTest)
     EXPECT_EQ(b[2], true);
     EXPECT_EQ(b[3], false);
     EXPECT_EQ(b[4], true);
-
 }
 
-TEST_F(bitsetTest, setResetTest)
+TEST(bitsetTest, setResetTest)
 {
     bitset b(5);
 
@@ -93,7 +66,7 @@ TEST_F(bitsetTest, setResetTest)
     EXPECT_EQ(b[4], false);
 }
 
-TEST_F(bitsetTest, booleanOpTests)
+TEST(bitsetTest, booleanOpTests)
 {
     bitset b(5);
     b.set(1);
@@ -181,7 +154,7 @@ TEST_F(bitsetTest, booleanOpTests)
     EXPECT_EQ(d[4], true);
 }
 
-TEST_F(bitsetTest, classBooleanOpTests)
+TEST(bitsetTest, classBooleanOpTests)
 {
     bitset b(5);
     b.set(1);
@@ -200,7 +173,4 @@ TEST_F(bitsetTest, classBooleanOpTests)
     EXPECT_FALSE(b != d);
     EXPECT_TRUE(b == b);
     EXPECT_FALSE(b != b);
-}
-
-
 }

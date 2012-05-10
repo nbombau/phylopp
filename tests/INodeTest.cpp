@@ -1,9 +1,6 @@
 #include <gtest/gtest.h>
 #include "phylopp/INode.h"
 
-namespace
-{
-
 using namespace Domain;
 using ::testing::Test;
 
@@ -13,32 +10,12 @@ class DummyNode : public T
 
 typedef DummyNode<Domain::Node> TestNode;
 
-class INodeTest : public Test
-{
-protected:
-
-    TestNode n;
-    BranchLength epsilon;
-
-    INodeTest() { }
-
-    virtual ~INodeTest() { }
-
-
-    virtual void SetUp()
-    {
-        epsilon = 0.0001;
-    }
-
-    virtual void TearDown()
-    {
-
-    }
-};
+const BranchLength epsilon = 0.0001;
 
 // Check the getters work properly
-TEST_F(INodeTest, GettersTest)
+TEST(INodeTest, GettersTest)
 {
+    TestNode n;
     n.setName("A");
     n.setBranchLength(0.1);
 
@@ -47,15 +24,17 @@ TEST_F(INodeTest, GettersTest)
 }
 
 //Single node, should be root and leaf
-TEST_F(INodeTest, SingleNodeTopologyTest)
+TEST(INodeTest, SingleNodeTopologyTest)
 {
+    TestNode n;
     ASSERT_TRUE(n.isRoot());
     ASSERT_TRUE(n.isLeaf());
 }
 
 //Add child, and check bindings
-TEST_F(INodeTest, AddChildTest)
+TEST(INodeTest, AddChildTest)
 {
+    TestNode n;
     TestNode* child1 = n.addChild<TestNode>();
 
     //check child's parent is n
@@ -93,5 +72,4 @@ TEST_F(INodeTest, AddChildTest)
     ListIterator<TestNode, Domain::Node> iter = n.getChildrenIterator<TestNode>();
 
     EXPECT_EQ(iter.count(), 5); //5 childs have been added
-}
 }
