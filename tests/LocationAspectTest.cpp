@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-#include "phylopp/LocationAspect.h"
+#include "phylopp/Domain/LocationAspect.h"
 
 using namespace Locations;
 using ::testing::Test;

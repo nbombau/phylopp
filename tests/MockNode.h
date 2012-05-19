@@ -23,8 +23,8 @@
 #include <gmock/gmock.h>
 #include <string>
 
-#include "phylopp/INode.h"
-#include "phylopp/LocationAspect.h"
+#include "phylopp/Domain/INode.h"
+#include "phylopp/Domain/LocationAspect.h"
 
 template <class T>
 class MockNode : public T

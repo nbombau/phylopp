@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
 
-#include "phylopp/ITree.h"
+#include "phylopp/Domain/ITree.h"
 #include "MockNode.h"
 
 using namespace Domain;

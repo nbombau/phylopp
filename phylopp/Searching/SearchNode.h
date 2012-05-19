@@ -20,10 +20,9 @@
 #ifndef SEARCHNODE_H
 #define SEARCHNODE_H
 
-#include "Domain/LocationManager.h"
-#include "Phylopp/Traversal/Traverser.h"
-#include "Phylopp/Traversal/NodeVisitor.h"
-
+#include "phylopp/Domain/LocationManager.h"
+#include "phylopp/Traversal/Traverser.h"
+#include "phylopp/Traversal/NodeVisitor.h"
 
 using namespace Traversal;
 

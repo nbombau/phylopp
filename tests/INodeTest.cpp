@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "phylopp/INode.h"
+#include "phylopp/Domain/INode.h"
 
 using namespace Domain;
 using ::testing::Test;

@@ -2,7 +2,7 @@
 #include <list>
 #include <gtest/gtest.h>
 
-#include "phylopp/ListIterator.h"
+#include "phylopp/Domain/ListIterator.h"
 
 using namespace Domain;
 using ::testing::Test;

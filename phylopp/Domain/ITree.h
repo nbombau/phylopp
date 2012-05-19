@@ -25,7 +25,7 @@
 #include <map>
 #include <set>
 
-#include "INode.h"
+#include "phylopp/Domain/INode.h"
 
 namespace Domain
 {
