@@ -25,6 +25,7 @@
 #include "phylopp/Traversal/NodeVisitor.h"
 
 using namespace Traversal;
+using Locations::Location;
 
 namespace Searching
 {
