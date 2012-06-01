@@ -53,11 +53,15 @@ protected:
         locationManager.addLocation(location, name);
     }
 
-    //TODO update tests to support distances file
-    void loadTreeFromFile(std::string treesFile, std::string placesFile, std::string distancesFile, ITreeCollection<TestNode>& trees, Locations::LocationManager& locationManager)
+    void loadTreeFromFile(std::string treesFile, std::string placesFile, std::string distancesFile, ITreeCollection<TestNode>& trees, Locations::LocationManager& locationManager, bool allowMissing)
     {
         FilesInfo info(test_dir + treesFile, test_dir + placesFile, test_dir + distancesFile);
-        fileDataSource.load(info, trees, locationManager, true);
+        fileDataSource.load(info, trees, locationManager, allowMissing);
+    }
+
+    void loadTreeFromFile(std::string treesFile, std::string placesFile, std::string distancesFile, ITreeCollection<TestNode>& trees, Locations::LocationManager& locationManager)
+    {
+        loadTreeFromFile(treesFile, placesFile, distancesFile, trees, locationManager, true);
     }
 
     void saveTreeToFile(std::string treesFile, ITreeCollection<TestNode>& trees)
@@ -685,9 +689,7 @@ TEST_F(FileDataSourceTest, loadMissingData)
     Locations::LocationManager locationManager;
     ITreeCollection<TestNode> trees;
 
-    FilesInfo info("tree1.nwk", "trees.dat", "distances2.dist");
-
-    ASSERT_THROW(fileDataSource.load(info, trees, locationManager, false), MissingDataException);
+    ASSERT_THROW(loadTreeFromFile("tree1.nwk", "trees.dat", "distances2.dist", trees, locationManager, false), MissingDataException);
 
     assertConsistency(trees, locationManager);
 }
