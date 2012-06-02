@@ -28,7 +28,7 @@ public:
     {}
     void onStart(const Domain::ITreeCollection<Node>& /*trees*/)
     {}
-    void onInclude(Node* node, const Consensus::bitset& /*cluster*/)
+    void onInclude(Node* /*node*/, const Consensus::bitset& /*cluster*/)
     {}
     void onExclude(Node* /*node*/, const Consensus::bitset& /*cluster*/)
     {}

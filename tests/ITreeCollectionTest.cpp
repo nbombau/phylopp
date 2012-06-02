@@ -24,11 +24,11 @@ TEST(ITreeCollectionTest, AddTreeTest)
     EXPECT_EQ(t1, tAux);
     EXPECT_EQ(it.count(), 1);
 
-    ITree<TestNode>* t2 = col.addTree();
-    ITree<TestNode>* t3 = col.addTree();
-    ITree<TestNode>* t4 = col.addTree();
-    ITree<TestNode>* t5 = col.addTree();
-    ITree<TestNode>* t6 = col.addTree();
+    col.addTree();
+    col.addTree();
+    col.addTree();
+    col.addTree();
+    col.addTree();
 
     ListIterator<ITree<TestNode> > it2 = col.getIterator();
 
