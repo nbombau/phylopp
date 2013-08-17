@@ -1,8 +1,8 @@
-Import ('env')
+Import('env')
 
 name = 'phylopp'
 inc = env.Dir('.')
-ext_inc = env.Dir('phylopp')
+ext_inc = []
 src = env.Glob('src/*.cpp')
 deps = ['mili']
 
